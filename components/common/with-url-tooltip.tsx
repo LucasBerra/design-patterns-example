@@ -9,16 +9,27 @@ const StyledTooltip = styled(Tooltip)`
   &:hover {
     & > summary {
       display: block;
+      padding: 8px 12px;
+      width: max-content;
+      max-width: calc(100vw - 48px);
+      white-space: pre-wrap;
+    }
+  }
+  .tooltip-text {
+    white-space: pre-wrap;
+    word-break: break-all;
+    * {
+      color: ${({ theme }) => theme.colors.black};
     }
   }
 `;
 
-const WithUrlTooltip = (Element: typeof Image, data: string) => {
+const withUrlTooltip = (Element: typeof Image, data: string) => {
   return (
-    <StyledTooltip position='bottom' label={`url: ${data}`}>
+    <StyledTooltip position='bottom' label={`<b>url</b>: ${data}`} isHoverable>
       <Element src={data} alt={`Dog image - ${Image}`} fill />
     </StyledTooltip>
   );
 };
 
-export default WithUrlTooltip;
+export default withUrlTooltip;
