@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Tooltip from './tooltip';
 import styled from 'styled-components';
 
@@ -24,12 +23,12 @@ const StyledTooltip = styled(Tooltip)`
   }
 `;
 
-const withUrlTooltip = (Element: typeof Image, data: string) => {
+const withTooltip = (Element: JSX.Element, label: string) => {
   return (
-    <StyledTooltip position='bottom' label={`<b>url</b>: ${data}`} isHoverable>
-      <Element src={data} alt={`Dog image - ${Image}`} fill />
+    <StyledTooltip position='bottom' label={label} isHoverable>
+      {Element}
     </StyledTooltip>
   );
 };
 
-export default withUrlTooltip;
+export default withTooltip;

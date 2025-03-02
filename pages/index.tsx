@@ -1,41 +1,16 @@
-import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Container from '../components/common/container';
 import styled from 'styled-components';
-import { MD_MIN_MEDIA_QUERY, SM_MIN_MEDIA_QUERY } from '../styles/theme';
-import withLoaderGrid from '../components/common/with-loader-grid';
+import withLoader from '../components/common/with-loader';
+import ImageGrid from '../components/common/image-grid';
 
 const StyledDescription = styled.p`
   padding-top: 6px;
 `;
 
-const StyledGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  margin: 36px auto;
-
-  ${SM_MIN_MEDIA_QUERY} {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  ${MD_MIN_MEDIA_QUERY} {
-    grid-template-columns: repeat(3, 1fr);
-  }
-`;
+const API_URL = 'https://dog.ceo/api/breed/labrador/images/random/6';
 
 export default function Home() {
-  const [imageData, setImageData] = useState([]);
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      const response = await fetch('https://dog.ceo/api/breed/labrador/images/random/6');
-      const data = await response.json();
-      setImageData(data.message); // Update state with the fetched images
-    };
-
-    fetchImages();
-  }, []);
-
   return (
     <>
       <Head>
@@ -53,7 +28,7 @@ export default function Home() {
             Image&apos;s url.
           </StyledDescription>
 
-          {withLoaderGrid(StyledGrid, imageData)}
+          {withLoader(ImageGrid, API_URL)}
         </Container>
       </main>
     </>
