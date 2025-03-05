@@ -2,9 +2,6 @@ import Tooltip from './tooltip';
 import styled from 'styled-components';
 
 const StyledTooltip = styled(Tooltip)`
-  width: 100%;
-  height: 100%;
-
   &:hover {
     & > summary {
       display: block;

@@ -19,8 +19,6 @@ const StyledGrid = styled.div`
 `;
 
 const StyledImgWrapper = styled(Link)`
-  height: 220px;
-  width: 100%;
   width: fit-content;
   position: relative;
   margin: 0 auto;
@@ -29,6 +27,7 @@ const StyledImgWrapper = styled(Link)`
     object-fit: contain;
     position: initial !important;
     border-radius: 10px;
+    height: 220px !important;
   }
 
   ${SM_MIN_MEDIA_QUERY} {
@@ -38,7 +37,10 @@ const StyledImgWrapper = styled(Link)`
   }
 
   ${LG_MIN_MEDIA_QUERY} {
-    height: 300px;
+    img {
+      object-fit: cover;
+      height: 300px !important;
+    }
   }
 `;
 

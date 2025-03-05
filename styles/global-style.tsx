@@ -11,7 +11,8 @@ const reset = css`
   html,
   body {
     max-width: 100vw;
-    background-color: #383838;
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(40, 40, 40, 1) 20%, rgba(72, 72, 72, 1) 100%);
   }
   main {
     padding: 32px 0px;
