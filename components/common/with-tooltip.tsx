@@ -22,7 +22,7 @@ const StyledTooltip = styled(Tooltip)`
 
 const withTooltip = (Element: JSX.Element, label: string) => {
   return (
-    <StyledTooltip position='bottom' label={label} isHoverable>
+    <StyledTooltip position='bottom' label={label} outline isHoverable>
       {Element}
     </StyledTooltip>
   );
